@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div style="width: 35%; margin: 0 auto; text-align: center;">
+<h1><%= @item.name.titleize %>  Prices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prices</th>
+      <th>Dollar Equiv.</th>
+      <th>As Of</th>      
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prices.each do |price| %>
+      <tr>
+        <td>NGN<%= price.amount %></td>
+        <td>$<%= (price.amount / 415).round(2) %></td>
+        <td><%= price.created_at.strftime("%b, %Y") %></td>     
+        <td><%= link_to 'Show', item_price_path(id: price) %></td>
+        <td><%= link_to 'Edit', edit_item_price_path(id: price) %></td>
+        <td><%= link_to 'Destroy', item_price_path(id: price), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>    
+</table>
+</div>
+
+<div style="margin-bottom: 150px">      
+
+    </div>
+
+    <div style="border: 1px solid black; text-alin: center; width: 50%; margin: 0 auto; font-size: 2em; padding: 15px; line-height: 1.6;">
+        <%= @item.name %> has had a 
+        <span style="color: green"><%= ((20.0 - 5.0) / 5.0).round(2) * 100 %>%</span> inflation rate over the last 6 years.
+    </div>
