@@ -5,10 +5,7 @@
   <%= @item.name %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @item.image %>
-</p>
+<%= image_tag @item.image_url, class: "img-fluid me-2", 'width': "200px", 'alt': "..." %>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
