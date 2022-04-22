@@ -32,7 +32,7 @@
         </div>
         <p class="m-0 flex2">&#8358;<%= item.prices.last.amount %></p>
         <p class="d-none d-sm-block m-0 flex2">$0.048</p>
-        <a class="btn btn-primary text-white btn-sm flex2" href="#">View</a>
+        <%= link_to 'View', item_path(item), class: "btn btn-primary text-white btn-sm flex2" %>
       </div>
     <% end %>
 
